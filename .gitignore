@@ -1,0 +1,24 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables / secrets
+.env
+
+# Data/output folders
+data/
+*.csv
+*.json
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
