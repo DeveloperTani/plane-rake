@@ -4,7 +4,7 @@
 
 It’s designed to be beginner-friendly, especially for people who aren’t programmers but want to work with real flight data. All query settings are easily adjustable in a config file, and **CLI (command-line) support** is planned for future versions.
 
-> ⚠️ This project was originally developed before Flightradar24 released official batch query samples. You can now find those here:  
+> ⚠️ This project was originally developed before Flightradar24 released official batch query samples and before support for filters. You can now find the sample scripts here:  
 > [https://fr24api.flightradar24.com/docs/endpoints/flight-positions-batch-query](https://fr24api.flightradar24.com/docs/endpoints/flight-positions-batch-query)
 
 ---
