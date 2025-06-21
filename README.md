@@ -69,7 +69,7 @@ Planerake simulates real-world IoT and industrial data workflows — turning noi
 
 ### 1. Install Python
 
-Make sure Python **3.9 or newer** is installed.  
+Make sure Python **3.13 or newer** is installed.  
 👉 [Download Python here](https://www.python.org/downloads/)
 
 ---
