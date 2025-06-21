@@ -1,62 +1,139 @@
-✈️ Planerake
+# ✈️ Planerake
 
-Planerake is a personal project born out of curiosity to track aircraft altitudes over a defined area. It pulls data from the Flightradar24 API and writes it to a CSV and/or JSON file for further analysis. The data can then be visualized using tools like Power BI.
+**Planerake** is a personal project built out of curiosity — it tracks aircraft altitudes over a defined area using the [Flightradar24 API](https://fr24api.flightradar24.com/docs). It fetches data, saves it to **CSV and/or JSON**, and makes it ready for visualization in tools like **Power BI**.
 
-This tool was built to be user-friendly, especially for non-programmers who want to fetch and use data from the Flightradar API. Query parameters can currently be modified in the config file, but I plan to add CLI functionality for easier, terminal-based input.
+It’s designed to be beginner-friendly, especially for people who aren’t programmers but want to work with real flight data. All query settings are easily adjustable in a config file, and **CLI (command-line) support** is planned for future versions.
 
-    ⚠️ This project was initially built before Flightradar24’s official sample scripts for historical batch queries were published. You can find those here:
-    https://fr24api.flightradar24.com/docs/endpoints/flight-positions-batch-query
+> ⚠️ This project was originally developed before Flightradar24 released official batch query samples. You can now find those here:  
+> [https://fr24api.flightradar24.com/docs/endpoints/flight-positions-batch-query](https://fr24api.flightradar24.com/docs/endpoints/flight-positions-batch-query)
 
-📌 Purpose
+---
 
-This project was created to explore trends in flight data and build visual dashboards from real-world raw data. It gave me hands-on experience with:
+## 📌 Purpose
 
-    Parsing structured and semi-structured data (JSON/CSV)
+Planerake was built to:
 
-    Data wrangling and transformation
+- Explore trends in aircraft flight behavior
+- Gain real-world experience with raw data pipelines
+- Visualize movement, altitude, and speed using modern tools
 
-    Visualizing time series and geospatial data (altitude, speed, movement)
+---
 
-    Using Power BI for dashboarding and analysis
+## 🛠️ Tools & Technologies
 
-🛠️ Tools & Technologies
+- **Python** – for data handling and preprocessing  
+- **Power BI** – for dashboards and visualizations
 
-    Python – data handling and preprocessing
+---
 
-    Power BI – dashboards and visualization
+## 📈 What It Does
 
-📈 What It Does
+- Loads historical aircraft data over a specified area and time range
+- Extracts key flight parameters: time, coordinates, altitude, speed
+- Saves the data to **CSV and/or JSON**
+- Easy configuration via `config.py`
 
-    Loads and parses historical aircraft flight data over a user-defined area and time window
+---
 
-    Extracts features like timestamps, speed, altitude, and GPS coordinates
+## 📊 Sample Output
 
-    Cleans and reshapes the data for dashboard use
+A Power BI sample dashboard will be included in the `/visuals` folder.
 
-    Supports configuration of coordinates, time window, logging interval, and output format (CSV/JSON) via the config file
+---
 
-📊 Sample Output
+## 🧠 What I Learned
 
-A sample Power BI visualization will be included in the /visuals folder.
-🧠 What I Learned
+This project sharpened my skills in:
 
-This project helped sharpen my:
+- Handling time-indexed and geospatial data
+- Building real-world data processing logic
+- Creating clean data pipelines — from API to dashboard
 
-    Ability to handle and analyze time-indexed data
+---
 
-    Skill in identifying meaningful visual patterns
+## 🔧 Future Improvements
 
-    Understanding of data pipelines — from raw input to polished dashboard
+- Real-time data tracking
+- Support for more Flightradar24 API endpoints
+- Full CLI interface (no need to modify files manually)
+
+---
+
+## 🤝 Why It Matters
+
+Planerake simulates real-world IoT and industrial data workflows — turning noisy sensor data into meaningful visual insights. It’s a great example of self-started technical initiative and problem-solving.
+
+---
+
+## 🧪 Usage
+
+### 1. Install Python
+
+Make sure Python **3.9 or newer** is installed.  
+👉 [Download Python here](https://www.python.org/downloads/)
+
+---
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/DeveloperTani/planeRake.git
+cd planerake
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Or, if you prefer manual install:
+
+```bash
+pip install requests python-dotenv
+```
+
+---
+
+### 4. Get Your API Token
+
+To use this tool, you'll need a Flightradar24 API key.
+
+**To get an API key, visit:** https://fr24api.flightradar24.com/docs/getting-started
+
+Then create a `.env` file inside the `src/` folder:
+
+```
+FR24_TOKEN=your_token_here
+```
+
+---
+
+### 5. Configure Parameters
+
+Open `config.py` and adjust:
+
+```python
+BOUNDS = '60.400, 60.200, 24.800, 25.200'  # North, South, West, East
+START_TIME_STRING = '2025-06-09 14:00'     # UTC time
+DURATION_SECONDS = 3600                    # Duration (in seconds)
+LOG_RATE_SECONDS = 30                      # Interval between samples
+SLEEP_SECONDS = 6                          # Delay between requests
+WRITE_CSV = True
+WRITE_JSON = True
+```
+
+---
+
+### 6. Run the Program
+
+```bash
+python main.py
+```
+
+This will fetch and save aircraft data in your chosen format.
 
 
-🔧 Future Improvements
 
-    Add real-time data handling
-
-    Expand functionality to include other Flightradar24 API endpoints
-
-    Turn it into a CLI tool to allow input via terminal instead of editing the config file
-
-🤝 Why It Matters
-
-Projects like this reflect real-world IoT and industrial data challenges — turning noisy sensor data into actionable insight. It’s a hands-on example of how I approach problem-solving and build practical tools from scratch.
