@@ -39,15 +39,6 @@ Planerake was built to:
 
 A Power BI sample dashboard will be included in the `/visuals` folder.
 
----
-
-## 🧠 What I Learned
-
-This project sharpened my skills in:
-
-- Handling time-indexed and geospatial data
-- Building real-world data processing logic
-- Creating clean data pipelines — from API to dashboard
 
 ---
 
@@ -57,11 +48,6 @@ This project sharpened my skills in:
 - Support for more Flightradar24 API endpoints
 - Full CLI interface (no need to modify files manually)
 
----
-
-## 🤝 Why It Matters
-
-Planerake simulates real-world IoT and industrial data workflows — turning noisy sensor data into meaningful visual insights. It’s a great example of self-started technical initiative and problem-solving.
 
 ---
 
