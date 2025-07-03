@@ -1,6 +1,6 @@
 # ✈️ PlaneRake
 
-**PlaneRake** is a personal project built out of curiosity — it tracks aircraft altitudes over a defined area using the [Flightradar24 API](https://fr24api.flightradar24.com/docs). It fetches data, saves it to **CSV and/or JSON**, and makes it ready for visualization in tools like **Power BI**.
+**PlaneRake** is a personal project built out of curiosity that tracks aircraft activity over a defined area using the [Flightradar24 API](https://fr24api.flightradar24.com/docs). It fetches data, saves it to **CSV and/or JSON**, and makes it ready for visualization in tools like **Power BI**.
 
 It’s designed to be beginner-friendly, especially for people who aren’t programmers but want to work with real flight data. All query settings are easily adjustable in a config file, and **CLI (command-line) support** is planned for future versions.
 
@@ -28,25 +28,16 @@ Planerake was built to:
 
 ## 📈 What It Does
 
-- Loads historical aircraft data over a specified area and time range
-- Extracts key flight parameters: time, coordinates, altitude, speed
+- Fetches historical flight data with parameters such as time, coordinates, altitude, speed
 - Saves the data to **CSV and/or JSON**
 - Easy configuration via `config.py`
 
 ---
 
-## 📊 Sample Output
-
-A Power BI sample dashboard will be included in the `/visuals` folder.
-
-
----
-
 ## 🔧 Future Improvements
 
-- Real-time data tracking
 - Support for more Flightradar24 API endpoints
-- Full CLI interface (no need to modify files manually)
+- CLI support
 
 
 ---
