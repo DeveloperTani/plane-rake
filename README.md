@@ -9,7 +9,7 @@ It’s designed to be beginner-friendly, especially for people who aren’t prog
 
 ---
 
-## 📌 Purpose
+##  Purpose
 
 Planerake was built to:
 
@@ -19,14 +19,7 @@ Planerake was built to:
 
 ---
 
-## 🛠️ Tools & Technologies
-
-- **Python** – for data handling and preprocessing  
-- **Power BI** – for dashboards and visualizations
-
----
-
-## 📈 What It Does
+##  What It Does
 
 - Fetches historical flight data with parameters such as time, coordinates, altitude, speed
 - Saves the data to **CSV and/or JSON**
@@ -42,7 +35,7 @@ Planerake was built to:
 
 ---
 
-## 🧪 Usage
+##  Usage
 
 ### 1. Install Python
 
