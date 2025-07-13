@@ -1,9 +1,12 @@
 import requests
 import time
 from datetime import datetime, timezone
+from export import init_csv_file, append_to_csv, append_to_json 
 
+def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_interval,
+                        write_csv=False, write_json=False,
+                        csv_path=None, json_path=None):
 
-def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_interval):
     url = 'https://fr24api.flightradar24.com/api/historic/flight-positions/full'
     headers = {
         'Accept': 'application/json',
@@ -11,6 +14,7 @@ def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_int
         'Authorization': f'Bearer {token}'
     }
 
+    fields = init_csv_file(csv_path) if write_csv and csv_path else None
     all_flights = []
 
     for timestamp in range(start_ts, end_ts, log_interval):
@@ -45,7 +49,16 @@ def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_int
         except Exception as err:
             print(f"General error: {err}")
 
+        # Always append record regardless of error
         all_flights.append(record)
+
+        # Write after each log if enabled
+        if write_json and json_path:
+            append_to_json(record, json_path)
+
+        if write_csv and csv_path and fields:
+            append_to_csv(record, csv_path, fields)
+
         time.sleep(sleep_interval)
 
     return all_flights

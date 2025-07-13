@@ -4,9 +4,9 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-
+import json
+from export import append_to_csv, append_to_json
 from collect import collect_flight_data
-from export import write_to_json, write_to_csv
 from config import *
 
 # ================== Preprocessing ==================
@@ -41,18 +41,23 @@ flight_data = collect_flight_data(
     bounds=BOUNDS,
     token=TOKEN,
     log_interval=LOG_RATE_SECONDS,
-    sleep_interval=SLEEP_SECONDS
+    sleep_interval=SLEEP_SECONDS,
+    write_csv=WRITE_CSV,
+    write_json=WRITE_JSON,
+    csv_path=CSV_PATH,
+    json_path=JSON_PATH
 )
-
 # ================== Export ==================
 
 if WRITE_JSON:
-    write_to_json(flight_data, JSON_PATH)
+    append_to_json(flight_data, JSON_PATH)
 
 if WRITE_CSV:
-    write_to_csv(flight_data, CSV_PATH)
+    append_to_csv(flight_data, CSV_PATH)
 
 print("✅Data collection and export complete.")
+
+
 
 
 
