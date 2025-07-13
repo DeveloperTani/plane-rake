@@ -20,7 +20,7 @@ def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_int
         }
 
         ts_readable = datetime.fromtimestamp(timestamp, tz=timezone.utc).isoformat()
-        print(f"🔍 Querying: {ts_readable}")
+        print(f"Querying: {ts_readable}")
 
         try:
             response = requests.get(url, headers=headers, params=params)
@@ -29,15 +29,15 @@ def collect_flight_data(start_ts, end_ts, bounds, token, log_interval, sleep_int
 
             if 'data' in data and data['data']:
                 flight_data = data['data']
-                print(f"✈️  Flights found: {len(flight_data)}")
+                print(f"Flights found: {len(flight_data)}")
                 all_flights.append(flight_data)
             else:
-                print("⚠️  No flight data found.")
+                print("No flight data found.")
 
         except requests.exceptions.HTTPError as http_err:
-            print(f"❌ HTTP error: {http_err}")
+            print(f"HTTP error: {http_err}")
         except Exception as err:
-            print(f"❌ General error: {err}")
+            print(f"General error: {err}")
 
         time.sleep(sleep_interval)
 
